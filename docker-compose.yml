@@ -1,0 +1,9 @@
+services:
+  food-ordering:
+    build: .
+    image: food-ordering:1.0.0
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: sqlite:///./food_ordering.db
+    restart: unless-stopped

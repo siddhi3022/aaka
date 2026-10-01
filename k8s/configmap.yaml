@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: food-ordering-config
+  namespace: food-ordering
+data:
+  APP_ENV: "kubernetes"
+  LOG_LEVEL: "INFO"
+  DATABASE_URL: "sqlite:////data/food_ordering.db"

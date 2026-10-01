@@ -1,0 +1,73 @@
+{
+  "info": {
+    "name": "Food Ordering API",
+    "_postman_id": "food-ordering-demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/health"
+      }
+    },
+    {
+      "name": "Create Restaurant",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Mumbai Spice\", \"address\": \"Andheri, Mumbai\", \"phone\": \"9876543210\", \"status\": \"OPEN\"}"
+        },
+        "url": "{{baseUrl}}/api/restaurants"
+      }
+    },
+    {
+      "name": "Create Menu Item",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"restaurant_id\": 1, \"name\": \"Paneer Tikka\", \"description\": \"Grilled cottage cheese\", \"price\": 220, \"category\": \"Starter\", \"availability\": true}"
+        },
+        "url": "{{baseUrl}}/api/menu"
+      }
+    },
+    {
+      "name": "Create Order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"restaurant_id\": 1, \"customer_name\": \"Rahul\", \"items\": [{\"menu_item_id\": 1, \"quantity\": 2}]}"
+        },
+        "url": "{{baseUrl}}/api/orders"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:8000"
+    }
+  ]
+}
